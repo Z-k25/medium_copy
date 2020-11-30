@@ -6,8 +6,7 @@ import { CurrentUserContext } from '../contexts/currentUser'
 const CurrentUserChecker = ({ children }) => {
     const [{ response }, doFetch] = useFetch('/user')
     const [token] = useLocalStorage('token')
-    const [currentUserState, setCurrentUserState] = useContext(CurrentUserContext)
-    console.log(currentUserState)
+    const [, setCurrentUserState] = useContext(CurrentUserContext)
 
     useEffect(() => {
         if (!token) {
