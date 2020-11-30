@@ -29,7 +29,7 @@ const useFetch = (url) => {
                 .then(({ data }) => {
                     setResponse(data)
                     setIsLoading(false)
-                })
+                }) 
                 .catch(({ response }) => {
                     setError(response.data)
                     setIsLoading(false)
