@@ -3,24 +3,24 @@ import { NavLink } from 'react-router-dom'
 
 const TopBar = () => {
     return (
-        <nav className='navbar navbar-light'>
-            <div className='container'>
-                <NavLink to='/' className='navbar-brand'>
+        <nav className="navbar navbar-light">
+            <div className="container">
+                <NavLink to="/" className="navbar-brand">
                     Medium
                 </NavLink>
-                <ul className='nav navbar-nav pull-xs-right'>
-                    <li className='nav-item'>
-                        <NavLink to='/' className='nav-link' exact>
+                <ul className="nav navbar-nav pull-xs-right">
+                    <li className="nav-item">
+                        <NavLink to="/" className="nav-link" exact>
                             Home
                         </NavLink>
                     </li>
-                    <li className='nav-item'>
-                        <NavLink to='/login' className='nav-link'>
+                    <li className="nav-item">
+                        <NavLink to="/login" className="nav-link">
                             Sign in
                         </NavLink>
                     </li>
-                    <li className='nav-item'>
-                        <NavLink to='/register' className='nav-link'>
+                    <li className="nav-item">
+                        <NavLink to="/register" className="nav-link">
                             Sign up
                         </NavLink>
                     </li>
