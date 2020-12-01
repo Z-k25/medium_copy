@@ -5,7 +5,6 @@ export const range = (start, end) => {
 }
 
 export const paginator = (url) => {
-    console.log(url)
     const parsedUrl = parse(url)
     const currentPage = parsedUrl ? parsedUrl.page : 1
     const offset = (currentPage - 1) * 10
