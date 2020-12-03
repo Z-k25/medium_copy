@@ -2,6 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Feed = ({ articles }) => {
+    if (articles.length === 0) {
+        return <div className="article-preview">No articles are here... yet.</div>
+    }
     return (
         <div>
             {articles.map((article, index) => (
