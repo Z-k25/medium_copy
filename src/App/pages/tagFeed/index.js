@@ -8,15 +8,16 @@ import PopularTags from '../../components/popularTags'
 import useFetch from '../../hooks/useFetch'
 import { limit, paginator } from '../../utils'
 
-const GlobalFeed = ({location, match}) => {
+const TagFeed = ({ location, match }) => {
   const [currentPage, offset] = paginator(location.search)
-  const apiUrl = `/articles?limit=${limit}&offset=${offset}`
-  const [{response, error, isLoading}, doFetch] = useFetch(apiUrl)
+  const tagName = match.params.slug
+  const apiUrl = `/articles?limit=${limit}&offset=${offset}&tag=${tagName}`
+  const [{ response, error, isLoading }, doFetch] = useFetch(apiUrl)
   const url = match.url
 
   useEffect(() => {
     doFetch()
-  }, [doFetch, apiUrl])
+  }, [doFetch, tagName, apiUrl])
   return (
     <div className="home-page">
       <div className="banner">
@@ -28,13 +29,13 @@ const GlobalFeed = ({location, match}) => {
       <div className="container page">
         <div className="row">
           <div className="col-md-9">
-            <FeedToggler />
+            <FeedToggler tagName={tagName} />
             {isLoading && <Loading />}
             {error && <ErrorMessage />}
             {!isLoading && response && (
               <Fragment>
                 <Feed articles={response.articles} />
-                <Pagination total={response.articlesCount} limit={limit} url={url} currentPage={+currentPage}/> 
+                <Pagination total={response.articlesCount} limit={limit} url={url} currentPage={+currentPage} />
               </Fragment>
             )}
           </div>
@@ -47,4 +48,4 @@ const GlobalFeed = ({location, match}) => {
   )
 }
 
-export default GlobalFeed
+export default TagFeed
